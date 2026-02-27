@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+    <!-- Fragmento #1 -->
+    <head th:fragment="head">
+        <title>[[#{app.titulo}]]</title>
+        <meta charset="UTF-8"/>
+        <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+        <link th:href="@{/webjars/font-awesome/css/all.css}" rel="stylesheet"/>
+        <link th:href="@{/css/estilos.css}" rel="stylesheet"/>
+        <script th:src="@{/js/rutinas.js}"></script>        
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
+    </head>
+    <body>
+
+        <!-- Fragmento #2   -->
+
+        <header th:fragment="header">
+
+            <nav class="navbar navbar-expand-lg shadow"
+                 style="background-color:#e91e8c;">
+                <div class="container">
+                    <a class="navbar-brand fw-bold text-white" th:href="@{/}">
+                        <i class="fa-solid fa-spa"></i> [[#{app.nombre}]]
+                    </a>
+
+                    <button class="navbar-toggler bg-light"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                        <ul class="navbar-nav">
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" th:href="@{/servicio/listado}">
+                                    [[#{menu.servicio}]]
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" th:href="@{/cita/listado}">
+                                    [[#{menu.cita}]]
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link text-white" th:href="@{/contacto/formularios}">
+                                    [[#{menu.contacto}]]
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
+
+            <section class="py-5 text-center"
+                     style="background-color:#fce4ec;">
+                <div class="container">
+                    <h1 class="fw-bold" style="color:#e91e8c;">
+                        [[#{app.descripcion}]]
+                    </h1>
+                    <p class="lead text-secondary mt-3">
+                        Descubre la mejor versión de ti misma en nuestro salón de belleza
+                    </p>
+                </div>
+            </section>
+
+        </header>
+
+        <main th:fragment="contenido" class="container my-5">
+            <section class="row mb-5">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="fw-bold mb-4" style="color:#e91e8c;">
+                                <i class="fa-solid fa-heart"></i> Sobre Nosotros
+                            </h2>
+                            <p class="text-secondary">
+                                Bienvenida a <strong> Flowers Beauty Salon</strong>, El lugar ideal para consentirte y resaltar lo mejor de ti.
+                                Nos enfocamos en brindarte momentos de bienestar y renovación que potencien tu esencia natural. 
+                                Contamos con un equipo de especialistas altamente capacitados, comprometidos en ofrecerte servicios estéticos de calidad 
+                                en un entorno armonioso, cómodo y sofisticado.
+                            </p>
+                            <p class="text-secondary">
+                                Ofrecemos una amplia gama de servicios, desde cambios de imagen personalizados hasta cuidados faciales que devuelven frescura y luminosidad 
+                                a tu piel. Seleccionamos cuidadosamente cada producto que utilizamos, asegurando calidad, seguridad y resultados que superen tus expectativas en cada sesión.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="fw-bold mb-4" style="color:#e91e8c;">
+                                <i class="fa-solid fa-gem"></i> ¿Por Qué Elegirnos?
+                            </h2>
+                            <ul class="list-unstyled text-secondary">
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-check text-success me-2"></i> 
+                                    Productos premium de primeras marcas
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-check text-success me-2"></i> 
+                                    Profesionales certificados y con experiencia
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-check text-success me-2"></i> 
+                                    Ambiente relajante y comfortable
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-check text-success me-2"></i> 
+                                    Atención personalizada a cada cliente
+                                </li>
+                                <li class="mb-3">
+                                    <i class="fa-solid fa-check text-success me-2"></i> 
+                                    Precios competitivos y promociones exclusivas
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="row mb-5">
+                <div class="col-12">
+                    <div class="card border-0 shadow-lg overflow-hidden">
+                        <div class="row g-0">
+                            <div class="col-md-4 d-flex align-items-center justify-content-center" 
+                                 style="background-color:#fce4ec;">
+                                <div class="text-center p-4">
+                                    <div class="mb-3">
+                                        <i class="fa-solid fa-gift" style="font-size: 4rem; color:#e91e8c;"></i>
+                                    </div>
+                                    <h3 class="fw-bold" style="color:#e91e8c;">¡Oferta Especial!</h3>
+                                    <p class="lead mb-0" style="color:#e91e8c;">50% OFF</p>
+                                    <p class="text-secondary small">En tu primera visita</p>
+                                </div>
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body p-5">
+                                    <h2 class="fw-bold mb-3" style="color:#e91e8c;">
+                                        Promoción del Mes
+                                    </h2>
+                                    <h4 class="text-dark mb-3">Paquete Relax Total</h4>
+                                    <p class="text-secondary">
+                                        Disfruta de una experiencia completa de belleza que incluye:
+                                    </p>
+                                    <ul class="text-secondary mb-4">
+                                        <li>Corte y peinado profesional</li>
+                                        <li>Tratamiento capilar de hidratación profunda</li>
+                                        <li>Manicure semipermanente</li>
+                                        <li>Masaje relajante de cabeza y hombros</li>
+                                    </ul>
+                                    <div class="d-flex align-items-center gap-3">
+                                        <span class="text-muted text-decoration-line-through">$150.00</span>
+                                        <span class="fw-bold fs-4" style="color:#e91e8c;">100.00</span>
+                                        <span class="badge bg-success">Ahorra $50.00</span>
+                                    </div>
+                                    <p class="text-muted small mt-2 mb-3">
+                                        *Válido solo para clientas nuevas. Agenda tu cita hoy.
+                                    </p>
+                                    <a th:href="@{/cita/nueva}" class="btn btn-lg text-white" 
+                                       style="background-color:#e91e8c;">
+                                        <i class="fa-solid fa-calendar-check"></i> Agendar Ahora
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="row mb-5">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h2 class="fw-bold mb-4 text-center" style="color:#e91e8c;">
+                                <i class="fa-solid fa-video"></i> Conoce Nuestro Servicio de Masajes Corporales
+                            </h2>
+                            <p class="text-secondary text-center mb-4">
+                                Te invitamos a ver cómo funcionan nuestros servicio de Masajes Corporales
+                            </p>
+                            <div class="col-lg-6">
+                                <div class="rounded shadow overflow-hidden">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvJmtbPDjcxPLANk93Cb5DYQoCUgXExUgR4A&s"
+                                         alt="Tratamiento facial profesional"
+                                         class="img-fluid w-100"
+                                         style="object-fit: cover;">
+                                </div>
+                                <p class="text-center text-muted small mt-2">[[#{imagen.descripcion}]]</p>
+                            </div>
+                            <div class="mt-4 text-center">
+                                <a th:href="@{/servicio/listado}" class="btn btn-outline-secondary me-2">
+                                    <i class="fa-solid fa-list"></i> Ver Todos los Servicios
+                                </a>
+                                <a th:href="@{/contacto}" class="btn text-white" 
+                                   style="background-color:#e91e8c;">
+                                    <i class="fa-solid fa-envelope"></i> Contáctanos
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="row">
+                <div class="col-12">
+                    <h2 class="fw-bold mb-4 text-center" style="color:#e91e8c;">
+                        <i class="fa-solid fa-star"></i> Lo Que Dicen Nuestras Clientes
+                    </h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
+                                    <p class="text-secondary fst-italic">
+                                        "¡El mejor salón de la ciudad! Siempre salgo renovada y beautiful. 
+                                        El servicio de tratamiento facial es increíble."
+                                    </p>
+                                    <p class="fw-bold mb-0">- Liz Chavarria</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
+                                    <p class="text-secondary fst-italic">
+                                        "Ambiente espectacular y personal muy profesional. 
+                                        La promoción de 50% fue una oportunidad increíble."
+                                    </p>
+                                    <p class="fw-bold mb-0">- Gina Vargas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body p-4 text-center">
+                                    <div class="mb-3">
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                        <i class="fa-solid fa-star text-warning"></i>
+                                    </div>
+                                    <p class="text-secondary fst-italic">
+                                        "Mis uñas nunca habían lucido tan bien. 
+                                        Definitivamente mi salón favorito. ¡Recomendado 100%!"
+                                    </p>
+                                    <p class="fw-bold mb-0">- Samanta Vargas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Fragmento #3 -->
+        <footer th:fragment="footer" class="text-white mt-5 py-4" style="background-color:#e91e8c;">
+            <div class="container text-center">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <h5 class="fw-bold">
+                            <i class="fa-solid fa-spa"></i> [[#{app.nombre}]]
+                        </h5>
+                        <small>Tu destino de belleza y relax</small>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5 class="fw-bold">Contáctanos</h5>
+                        <small>
+                            <i class="fa-solid fa-phone"></i> (506) 8985-5588<br>
+                                <i class="fa-solid fa-location-dot"></i> Av. Belleza 123, Ciudad
+                        </small>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <h5 class="fw-bold">Síguenos</h5>
+                        <a href="#" class="text-white me-2"><i class="fa-brands fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-white me-2"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-white"><i class="fa-brands fa-tiktok fa-lg"></i></a>
+                    </div>
+                </div>
+                <hr class="my-3" style="opacity: 0.5;">
+                    <small>[[#{footer.texto}]]</small>
+            </div>
+        </footer>
+
+        <section th:fragment="mostrarToast">
+            <div aria-live="polite" aria-atomic="true"
+                 class="position-fixed top-50 start-50 translate-middle" style="z-index: 1080;">
+
+                <div th:if="${error}" class="toast show"
+                     role="alert"
+                     aria-live="assertive"
+                     aria-atomic="true"
+                     data-bs-autohide="true">
+                    <div class="toast-header text-white" style="background-color:#e91e8c;">
+                        <i class="fa-solid fa-bomb"></i> <strong class="me-auto">[[#{mensaje.error}]]</strong>
+                    </div>
+                    <div class="toast-body">
+                        <p>[[${error}]]</p>
+                        <div class="mt-2 pt-2 border-top text-center">
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                    data-bs-dismiss="toast">[[#{accion.cerrar}]]</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div th:if="${todoOk}" class="toast show"
+                     role="status"
+                     aria-live="polite"
+                     aria-atomic="true"
+                     data-bs-autohide="true">
+                    <div class="toast-header text-white" style="background-color:#e91e8c;">
+                        <i class="fa-solid fa-square-check"></i> <strong class="me-auto">[[#{atencion}]]</strong>
+                    </div>
+                    <div class="toast-body">
+                        <p>[[${todoOk}]]</p>
+                        <div class="mt-2 pt-2 border-top text-center">
+                            <button type="button" class="btn btn-secondary btn-sm"
+                                    data-bs-dismiss="toast">[[#{accion.cerrar}]]</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </body> 
+
+</html>
